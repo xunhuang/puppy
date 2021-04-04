@@ -13,9 +13,16 @@ exports.screenshot = async (req, res) => {
     const page = await browser.newPage();
     await page.goto(url);
     const imageBuffer = await page.screenshot();
+    const html = await page.content();
     browser.close();
+    // res.set('Content-Type', 'image/png');
+    // res.send(imageBuffer);
+    res.set('Content-Type', 'text/html');
+    let json = {
+        image: imageBuffer.toString('base64'),
+        text: html,
+    }
 
-    res.set('Content-Type', 'image/png');
-    res.send(imageBuffer);
+    res.send(JSON.stringify(json, null, 2));
   };
 

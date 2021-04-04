@@ -5,6 +5,9 @@ const {screenshot} = require('./screenshot.js')
 const express = require('express');
 const puppeteer = require('puppeteer');
 const app = express();
+const cors = require('cors')
+
+app.use(cors())
 
 app.use(screenshot);
 

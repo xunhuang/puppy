@@ -5,3 +5,11 @@ Open local browser and browse to
 http://localhost:8080/?url=https%3A%2F%2Fnews.google.com%0A
 
 to see screenshot
+
+
+
+Deploy to Google Run Docker image 
+---------------------------------
+
+gcloud builds submit --tag gcr.io/{PROJECT-ID}/{IMAGE-NAME}
+

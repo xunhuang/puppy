@@ -4,12 +4,13 @@ docker run -p 127.0.0.1:8080:8080 hellopup
 Open local browser and browse to 
 http://localhost:8080/?url=https%3A%2F%2Fnews.google.com%0A
 
-to see screenshot
 
+To use Tor, specify useTor=true
+http://localhost:8080/?url=https%3A%2F%2Fifconfig.me%0A&useTor=true
 
+to see screenshot (base64 encoded) and html content
 
 Deploy to Google Run Docker image 
 ---------------------------------
 
 gcloud builds submit --tag gcr.io/{PROJECT-ID}/{IMAGE-NAME}
-

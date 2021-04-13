@@ -13,13 +13,14 @@ var nextPortIndex = 0;
 
 exports.screenshot = async (req, res) => {
   const url = req.query.url;
+  const paramUseTor = req.query.useTor;
 
   if (!url) {
     return res.send('Please provide URL as GET parameter, for example: <a href="?url=https://example.com">?url=https://example.com</a>');
   }
 
   let args = ['--no-sandbox'];
-  if (useTor) {
+  if (useTor || paramUseTor) {
     args.push(
       `--proxy-server=socks5://127.0.0.1:${ports[nextPortIndex]}`
     );
